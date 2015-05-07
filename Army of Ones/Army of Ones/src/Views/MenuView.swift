@@ -45,7 +45,7 @@ class MenuView: GenericView {
         
         lblInstruct                 = UILabel(frame: CGRectMake(0, lblIntro.frame.maxY + 20, 280, 50))
         lblInstruct.text            = "Write the amount of US Dollars you'd like to exchange"
-        lblInstruct.center.x        = container.center.x
+        lblInstruct.center.x        = container.frame.width/2
         lblInstruct.numberOfLines   = 0
         lblInstruct.textAlignment   = NSTextAlignment.Center
         lblInstruct.font            = UIFont.flatFontOfSize(18)
@@ -64,23 +64,24 @@ class MenuView: GenericView {
         txtBase.cornerRadius        = 3.0
         txtBase.textAlignment       = NSTextAlignment.Center
         txtBase.keyboardType        = UIKeyboardType.NumberPad
-        txtBase.center.x            = container.center.x
+        txtBase.center.x            = container.frame.width/2
         txtBase.placeholder         = "USD"
 
         
         btnConvert                  = FUIButton(frame: CGRectMake(0, txtBase.frame.maxY + 10, 80, 50))
-        btnConvert.buttonColor      = UIColor.alizarinColor()
-        btnConvert.shadowColor      = UIColor.pomegranateColor()
+        btnConvert.buttonColor      = UIColor.wetAsphaltColor()
+        btnConvert.shadowColor      = UIColor.midnightBlueColor()
         btnConvert.shadowHeight     = 3.0
         btnConvert.cornerRadius     = 6.0
         
         
         btnConvert.titleLabel!.font = UIFont.boldFlatFontOfSize(15)
+        btnConvert.enabled = false
         btnConvert.setTitleColor(UIColor.cloudsColor(), forState: UIControlState.Normal)
         btnConvert.setTitleColor(UIColor.cloudsColor(), forState: UIControlState.Highlighted)
-        btnConvert.setTitle("Convert", forState: UIControlState.Normal)
+        btnConvert.setTitle("Loading...", forState: UIControlState.Normal)
         btnConvert.addTarget(self, action: Selector("convertCurrency:"), forControlEvents: UIControlEvents.TouchUpInside)
-        btnConvert.center.x = container.center.x
+        btnConvert.center.x = container.frame.width/2
         
         
         tapRecognizer = UITapGestureRecognizer(target: self, action: Selector("hide"))
@@ -139,15 +140,17 @@ class MenuView: GenericView {
     Function charge to show the values after convertCurrency function is executed
     */
     func showValues(){
+        txtBase.resignFirstResponder()
         exgContainer = UIView(frame: CGRectMake(0, 230, container.frame.width, self.view.frame.height - 230))
         exgContainer.alpha = 0
+        exgContainer.center.x = self.view.center.x
         self.view.addSubview(exgContainer)
         var counter = 0
         for currency in currencies{
             var hCurr = exgContainer.frame.height/4
             var rect = CGRectMake(0, (hCurr*CGFloat(counter)) + CGFloat(10), (exgContainer.frame.width - 32), hCurr - 20)
-            var value = Value(frame: rect, currency: currency.0, value: currency.1 * CGFloat(txtBase.text!.toInt()!)  )
-            value.center.x = exgContainer.center.x
+            var value = Value(frame: rect, currency: currency.0, value: CurrencyTransactions().convert(currency.1, amount: CGFloat(txtBase.text!.toInt()!)))
+            value.center.x = exgContainer.frame.width/2
             exgContainer.addSubview(value)
             counter++
         }
@@ -156,11 +159,14 @@ class MenuView: GenericView {
         exgContainer.pop_addAnimation(animate, forKey: "CellAnimation")
     }
     
+    
     func hideValues(){
         var animate = POPSpringAnimation(propertyNamed: kPOPViewAlpha)
         animate.toValue = 0
         exgContainer.pop_addAnimation(animate, forKey: "HideAnimation")
     }
+    
+   
     
     /**
     Function to hide the keyboard when background is tapped
@@ -189,6 +195,10 @@ class MenuView: GenericView {
     */
     override func returnObt(responseObject: AnyObject) {
         var d = JSON(responseObject as! NSDictionary)
+        btnConvert.enabled = true
+        btnConvert.setTitle("Convert", forState: UIControlState.Normal)
+        btnConvert.buttonColor      = UIColor.alizarinColor()
+        btnConvert.shadowColor      = UIColor.pomegranateColor()
         currencies = [String: CGFloat]()
         for currency in d["rates"]{
             currencies[currency.0] = CGFloat(currency.1.double ?? 0.0)

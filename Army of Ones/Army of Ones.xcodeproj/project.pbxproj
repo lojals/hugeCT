@@ -16,6 +16,7 @@
 		7A2D163B1AF9C35400B400BD /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D163A1AF9C35400B400BD /* APIManager.swift */; };
 		7A2D16401AF9C7F500B400BD /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D163F1AF9C7F500B400BD /* MenuView.swift */; };
 		7A2D16441AF9C84A00B400BD /* GenericView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A2D16431AF9C84A00B400BD /* GenericView.swift */; };
+		7A842A881AFBEE9600F25769 /* CurrencyTransactions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A842A871AFBEE9600F25769 /* CurrencyTransactions.swift */; };
 		7AC3F8251AFA7229004A8BCA /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC3F8241AFA7229004A8BCA /* SwiftyJSON.swift */; };
 		7AC3F8281AFA8870004A8BCA /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC3F8271AFA8870004A8BCA /* NavigationController.swift */; };
 		7AC3F82B1AFAFDF4004A8BCA /* Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AC3F82A1AFAFDF4004A8BCA /* Value.swift */; };
@@ -54,6 +55,7 @@
 		7A2D163C1AF9C38600B400BD /* Army of Ones-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Army of Ones-Bridging-Header.h"; sourceTree = "<group>"; };
 		7A2D163F1AF9C7F500B400BD /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = src/Views/MenuView.swift; sourceTree = "<group>"; };
 		7A2D16431AF9C84A00B400BD /* GenericView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GenericView.swift; path = src/Views/GenericView.swift; sourceTree = "<group>"; };
+		7A842A871AFBEE9600F25769 /* CurrencyTransactions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyTransactions.swift; path = src/Component/CurrencyTransactions.swift; sourceTree = "<group>"; };
 		7AC3F8181AFA7088004A8BCA /* SwiftTryCatch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftTryCatch.framework; path = "Pods/../build/Debug-iphoneos/Pods/SwiftTryCatch.framework"; sourceTree = "<group>"; };
 		7AC3F8191AFA7088004A8BCA /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = "Pods/../build/Debug-iphoneos/Pods/SwiftyJSON.framework"; sourceTree = "<group>"; };
 		7AC3F81C1AFA7090004A8BCA /* pop.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = pop.framework; path = "Pods/../build/Debug-iphoneos/Pods/pop.framework"; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		7AC3F8291AFAFDA6004A8BCA /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				7A842A871AFBEE9600F25769 /* CurrencyTransactions.swift */,
 				7AC3F82A1AFAFDF4004A8BCA /* Value.swift */,
 			);
 			name = Component;
@@ -397,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A2D163B1AF9C35400B400BD /* APIManager.swift in Sources */,
+				7A842A881AFBEE9600F25769 /* CurrencyTransactions.swift in Sources */,
 				7A2D16441AF9C84A00B400BD /* GenericView.swift in Sources */,
 				7A2D16401AF9C7F500B400BD /* MenuView.swift in Sources */,
 				7AC3F82B1AFAFDF4004A8BCA /* Value.swift in Sources */,
