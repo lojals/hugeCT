@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 @objc protocol APIManagerDelegate{
     optional func returnList(responseObject:AnyObject, url:String)
     optional func returnObt(responseObject:AnyObject)
@@ -14,6 +15,7 @@ import UIKit
 
 class APIManager: NSObject {
     var URLAPI = "http://api.fixer.io/"
+    var baseCurrencies = "EUR,GBP,JPY,BRL"
     var delegate:APIManagerDelegate!
     
     override init() {
@@ -21,18 +23,20 @@ class APIManager: NSObject {
     }
     
     //MARK: -CUSTOM METHODS
+    
     func getCurrencies(){
-        //http://api.fixer.io/latest?base=USD&symbols=EUR,GBP,JPY,BRL
-        performGet("latest?base=USD&symbols=EUR,GBP,JPY,BRL", token: "", list: false)
+        performGet("latest?base=USD&symbols="+baseCurrencies, token: "", list: false)
+        
     }
     
     func getLastDays(){
         //http://api.fixer.io/2015-01-04?base=USD&symbols=EUR,GBP,JPY,BRL
-        performGet("latest?base=USD&symbols=EUR,GBP,JPY,BRL", token: "", list: false)
+        performGet("latest?base=USD&symbols="+baseCurrencies, token: "", list: false)
     }
     
     
-    //MARK: -AFNETWORKING DELEGATE
+    //MARK: -AFNETWORKING PROCESSING
+    
     func performGet(url:String!, token:String!, list:Bool){
         var operationManager = AFHTTPRequestOperationManager()
         operationManager.responseSerializer = AFJSONResponseSerializer()
@@ -49,5 +53,4 @@ class APIManager: NSObject {
                 println("Error: " + error.localizedDescription)
         })
     }
-    
 }

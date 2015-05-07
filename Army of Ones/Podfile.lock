@@ -21,18 +21,21 @@ PODS:
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - Canvas (0.1.2)
+  - FlatUIKit (1.6.1)
   - pop (1.0.7)
   - SwiftTryCatch (0.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - Canvas
+  - FlatUIKit
   - pop (~> 1.0)
   - SwiftTryCatch
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
   Canvas: eb861e3b555d032648146c8ffda1a5dea40059ca
+  FlatUIKit: c602127a0c4a347e0632b2c5aef5c8c5f386f2cf
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   SwiftTryCatch: fb6d2b34abe48efd69578dac919293a44f95b481
 

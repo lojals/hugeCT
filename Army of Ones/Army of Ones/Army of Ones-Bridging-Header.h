@@ -6,4 +6,7 @@
 #import <UIKit/UIKit.h>
 #import <Pop/Pop.h>
 #import <AFNetworking/AFNetworking.h>
-#import "SwiftTryCatch.h"
+#import <FlatUIKit/FlatUIKit.h>
+#import <FlatUIKit/UIColor+FlatUI.h>
+#import "UIFont+FlatUI.h"
+#import "NSString+Icons.h"
