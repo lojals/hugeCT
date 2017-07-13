@@ -15,12 +15,12 @@ Using data from http://api.fixer.io/
 # Requirements
 
 * iOS 8+
-* Cocoa Pods
+* CocoaPods
 * Swift 1.2
 
 # Installation
 
-This project is using Cocoa Pods, to open it please use **Army of Ones.xcworkspace** and execute the following command in the terminal
+This project is using CocoaPods, to open it please use **Army of Ones.xcworkspace** and execute the following command in the terminal
 
 `pod install`
 
